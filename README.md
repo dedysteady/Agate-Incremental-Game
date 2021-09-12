@@ -1,1 +1,1 @@
-# Studi Independen - incremental-game
+# Studi Independen - Incremental Game
