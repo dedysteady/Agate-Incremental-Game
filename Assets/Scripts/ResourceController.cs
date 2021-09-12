@@ -7,6 +7,7 @@ using static GameManager;
 
 public class ResourceController : MonoBehaviour
 {
+
     public Button ResourceButton;
     public Image ResourceImage;
     public Text ResourceDescription;
@@ -34,11 +35,6 @@ public class ResourceController : MonoBehaviour
         });
     }
 
-        // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetConfig (ResourceConfig config)
     {
@@ -77,6 +73,7 @@ public class ResourceController : MonoBehaviour
 
         GameManager.Instance.AddGold (-upgradeCost);
         _level++;
+
 
         ResourceUpgradeCost.text = $"Upgrade Cost\n{ GetUpgradeCost () }";
         ResourceDescription.text = $"{ _config.Name } Lv. { _level }\n+{ GetOutput ().ToString ("0") }";

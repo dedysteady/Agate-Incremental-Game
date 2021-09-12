@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceaf48ca923400c48a3bef097186fc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioUpgrade: {fileID: 0}
+  AudioFailUpgrade: {fileID: 0}
   ResourceButton: {fileID: 2639591173917036869}
   ResourceImage: {fileID: 6189622145062882977}
   ResourceDescription: {fileID: 8677100318524127727}

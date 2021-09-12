@@ -28,12 +28,8 @@ public class AchievementController : MonoBehaviour
 
     private float _popUpShowDurationCounter;
 
-    void Start()
-    {
-        
-    }
 
-    void Update ()
+    private void Update ()
     {
         if (_popUpShowDurationCounter > 0)
         {
@@ -61,10 +57,13 @@ public class AchievementController : MonoBehaviour
 
     private void ShowAchivementPopUp (AchievementData achievement)
     {
+   
         _popUpText.text = achievement.Title;
         _popUpShowDurationCounter = _popUpShowDuration;
         _popUpTransform.localScale = Vector2.right;
     }
+
+
 }
 
 // System.Serializable digunakan agar object dari script bisa di-serialize
