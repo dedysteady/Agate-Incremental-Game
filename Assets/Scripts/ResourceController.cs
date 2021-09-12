@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static AchievementController;
-using static GameManager;
+
 
 public class ResourceController : MonoBehaviour
 {
+    public AudioSource AudioUpgrade;
 
     public Button ResourceButton;
     public Image ResourceImage;
@@ -33,6 +33,8 @@ public class ResourceController : MonoBehaviour
                 UnlockResource ();
             }
         });
+
+        ResourceButton.onClick.AddListener (UpgradeLevel);
     }
 
 
@@ -73,6 +75,7 @@ public class ResourceController : MonoBehaviour
 
         GameManager.Instance.AddGold (-upgradeCost);
         _level++;
+        AudioUpgrade.Play();
 
 
         ResourceUpgradeCost.text = $"Upgrade Cost\n{ GetUpgradeCost () }";

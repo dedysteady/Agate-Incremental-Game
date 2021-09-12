@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class AchievementController : MonoBehaviour
 {
+    public AudioSource AudioAchievement;
     // Instance ini mirip seperti pada GameManager, fungsinya adalah membuat sistem singleton
     // untuk memudahkan pemanggilan script yang bersifat manager dari script lain
     private static AchievementController _instance = null;
@@ -57,7 +58,7 @@ public class AchievementController : MonoBehaviour
 
     private void ShowAchivementPopUp (AchievementData achievement)
     {
-   
+        AudioAchievement.Play();
         _popUpText.text = achievement.Title;
         _popUpShowDurationCounter = _popUpShowDuration;
         _popUpTransform.localScale = Vector2.right;
