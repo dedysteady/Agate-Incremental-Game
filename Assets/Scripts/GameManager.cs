@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
     public Transform ResourcesParent;
     public ResourceController ResourcePrefab;
     public TapText TapTextPrefab;
-
-    public Transform CoinIcon;
    
     public Text GoldInfo;
     public Text AutoCollectInfo;
@@ -38,6 +36,10 @@ public class GameManager : MonoBehaviour
     private List<TapText> _tapTextPool = new List<TapText> ();
     private float _collectSecond;
     public double TotalGold { get; private set; }
+
+    public SpriteRenderer kiritosprite;
+    public Sprite[] kirito;
+    public int changekirito = 0;
 
     void Start ()
     {
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         CheckResourceCost ();
 
-        CoinIcon.transform.localScale = Vector3.LerpUnclamped (CoinIcon.transform.localScale, Vector3.one * 2f, 0.15f);
+        kiritosprite.transform.localScale = Vector3.LerpUnclamped (kiritosprite.transform.localScale, Vector3.one * 2f, 0.15f);
         
     }
 
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
             ResourceController resource = obj.GetComponent<ResourceController> ();
 
             resource.SetConfig (config);
+             _activeResources.Add(resource);
             obj.gameObject.SetActive (showResources);
 
             if (showResources && !resource.IsUnlocked)
@@ -151,7 +154,7 @@ public class GameManager : MonoBehaviour
 
         tapText.Text.text = $"+{ output.ToString ("0") }";
         tapText.gameObject.SetActive (true);
-        CoinIcon.transform.localScale = Vector3.one * 1.75f;
+        kiritosprite.transform.localScale = Vector3.one * 1.75f;
 
         AddGold (output);
     }
@@ -166,6 +169,28 @@ public class GameManager : MonoBehaviour
         }
 
         return tapText;
+    }
+
+    public void ChangeKirito()
+    {
+        switch (changekirito)
+        {
+            case 1:
+                kiritosprite.sprite = kirito[1];
+                break;
+
+            case 2:
+                kiritosprite.sprite = kirito[2];
+                break;
+
+            case 3:
+                kiritosprite.sprite = kirito[3];
+                break;
+
+            default:
+                kiritosprite.sprite = kirito[0];
+                break;
+        }
     }
 }
 

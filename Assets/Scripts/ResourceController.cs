@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static AchievementController;
+using static GameManager;
 
 
 public class ResourceController : MonoBehaviour
@@ -81,6 +83,13 @@ public class ResourceController : MonoBehaviour
         ResourceUpgradeCost.text = $"Upgrade Cost\n{ GetUpgradeCost () }";
         ResourceDescription.text = $"{ _config.Name } Lv. { _level }\n+{ GetOutput ().ToString ("0") }";
    
+        if (_level == 25)
+        {
+            ResourceUpgradeCost.text = "LEVEL MAX";
+            ResourceDescription.text = $"{ _config.Name } Lv. { _level }";
+            ResourceButton.gameObject.SetActive(false);
+        }
+
     }
 
 
@@ -95,7 +104,9 @@ public class ResourceController : MonoBehaviour
         }
 
         SetUnlocked (true);
-        GameManager.Instance.ShowNextResource ();
+        GameManager.Instance.ShowNextResource();
+        GameManager.Instance.changekirito++;
+        GameManager.Instance.ChangeKirito();
         AchievementController.Instance.UnlockAchievement (AchievementType.UnlockResource, _config.Name);
     }
 
