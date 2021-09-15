@@ -1,5 +1,5 @@
 # Studi Independen - Incremental Game
-Agate Academy Project
+This Project for Independen Study at Agate Academy
 
 # Additional Features
 - Change Coin theme to Kirito (SAO Character) theme
