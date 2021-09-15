@@ -8,4 +8,4 @@ Agate Academy Project
 - Change character when unlock achievement
 
 # How To Run
-Open The build version of the game in the build standalone folder. Then run .exe file and setup prefered resolution size.
+Open The build version of the game in the build folder. Then run .exe file and setup prefered resolution size
