@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         if (_collectSecond >= 1f)
         {
             CollectPerSecond ();
-            _collectSecond = 0f;
+            _collectSecond = 1f;
         }
 
         CheckResourceCost ();
